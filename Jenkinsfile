@@ -44,7 +44,7 @@ properties(
 
         stage('TestVersion') {
             
-            dir('TMOAndroidApp') {
+            dir('verifyJenkins') {
                 sh """
                     test=${env.VERSION_NAME}
                     echo \$test
