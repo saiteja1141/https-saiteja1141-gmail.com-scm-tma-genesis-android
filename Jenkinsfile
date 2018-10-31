@@ -21,10 +21,8 @@ properties(
     ]
 )
     try {
-	    stage('Version') {
-	        dir('verifyJenkins') {
 
-	        // env.VERSION_NAME = "7.5.0"
+	                env.VERSION_NAME = "7.5.0"
 		    // sh 'pwd'
 		    // sh 'll'
 		        String readConfigFile = new File("gradle/configurations.gradle").text
@@ -34,13 +32,8 @@ properties(
             			configVersion = line =~ /(\d+\.)(\d+\.)(\d+)/
             			println "CONFIG VER: = " + configVersion[0][0]
 				        env.VERSION_NAME = configVersion[0][0]
-        		    }
-                    else {
-                        env.VERSION_NAME = "7.5.0"
-                    }
-		        }
-	        }
-	    }
+        		     }
+       		            }
 
         stage('TestVersion') {
             
