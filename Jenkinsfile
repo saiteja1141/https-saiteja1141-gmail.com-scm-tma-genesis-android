@@ -22,7 +22,7 @@ properties(
 )
     try {
 	    stage('Version') {
-	        dir('TMOAndroidApp') {
+	        dir('verifyJenkins') {
 
 	        // env.VERSION_NAME = "7.5.0"
 		    // sh 'pwd'
