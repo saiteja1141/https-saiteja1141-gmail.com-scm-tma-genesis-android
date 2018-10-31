@@ -1,8 +1,9 @@
 #!groovy
 
     try {
-
-	                env.VERSION_NAME = "7.5.0"
+		stage('Version') {
+		dir('verifyJenkins') {
+		      env.VERSION_NAME = "7.5.0"
 		    // sh 'pwd'
 		    // sh 'll'
 		        String readConfigFile = new File("gradle/configurations.gradle").text
@@ -14,6 +15,8 @@
 				        env.VERSION_NAME = configVersion[0][0]
         		     }
        		            }
+			}
+		}
 
         stage('TestVersion') {
             
