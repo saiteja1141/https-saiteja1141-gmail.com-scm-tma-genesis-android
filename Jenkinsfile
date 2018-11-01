@@ -34,5 +34,5 @@
         throw ex
     } 
     finally {
-        slackBuildStatus(currentBuild.result)
+        currentBuild.result
     }
