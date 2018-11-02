@@ -59,9 +59,10 @@ node('master') {
             }
         }
 
-    }
-    catch (ex) {
+    }  catch (ex) {
         currentBuild.result = "FAILED"
         throw ex
-    } 
+    } finally {
+        currentBuild.result
+    }
 }
