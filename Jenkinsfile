@@ -46,7 +46,7 @@ node('master') {
                         env.VERSION_NAME = "7.5.0"
                     }
 		        }
-	       // }
+	        }
 	    }
 
         stage('TestVersion') {
@@ -62,7 +62,5 @@ node('master') {
     }  catch (ex) {
         currentBuild.result = "FAILED"
         throw ex
-    } finally {
-        currentBuild.result
-    }
+    } 
 }
