@@ -1,25 +1,4 @@
 #!groovy
-
-properties(
-    [
-        [
-            $class  : 'jenkins.model.BuildDiscarderProperty',
-            strategy: [
-                    $class      : 'LogRotator',
-                    numToKeepStr: '200',
-                    daysToKeepStr: '30'
-            ]
-        ],
-        pipelineTriggers(
-            [
-                [
-                    $class: "SCMTrigger", scmpoll_spec: "H/5 * * * *"
-                ],
-            ]
-        ),
-        disableConcurrentBuilds()
-    ]
-)
 node('master') {
     try {
 	    stage('Version') {
