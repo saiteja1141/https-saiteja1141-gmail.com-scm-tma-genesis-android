@@ -33,7 +33,7 @@ node('master') {
 
 	        // env.VERSION_NAME = "7.5.0"
 		       sh 'pwd'
-		       sh 'll'
+		       //sh 'll'
 		        String readConfigFile = new File("verifyJenkins/gradle/configurations.gradle").text
 		        def configLines = readConfigFile.readLines()
 		        configLines.each { String line ->
