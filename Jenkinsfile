@@ -58,7 +58,4 @@ node('master') {
         currentBuild.result = "FAILED"
         throw ex
     } 
-    finally {
-        slackBuildStatus(currentBuild.result)
-    }
 }
