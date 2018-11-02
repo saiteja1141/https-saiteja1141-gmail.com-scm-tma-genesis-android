@@ -1,40 +1,15 @@
 #!groovy
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-
-properties(
-    [
-        [
-            $class  : 'jenkins.model.BuildDiscarderProperty',
-            strategy: [
-                    $class      : 'LogRotator',
-                    numToKeepStr: '200',
-                    daysToKeepStr: '30'
-            ]
-        ],
-        pipelineTriggers(
-            [
-                [
-                    $class: "SCMTrigger", scmpoll_spec: "H/5 * * * *"
-                ],
-            ]
-        ),
-        disableConcurrentBuilds()
-    ]
-)
-
-node('master') {
-    try {
+node {
+	label ('master') 
+}
+	try {
 	    stage('Version') {
-	          dir('https-saiteja1141-gmail.com-scm-tma-genesis-android') {
+	          dir('verifyJenkins') {
 
 	        // env.VERSION_NAME = "7.5.0"
-		       sh 'pwd'
+		      // sh 'pwd'
 		       //sh 'll'
-		        String readConfigFile = new File("verifyJenkins/gradle/configurations.gradle").text
+		        String readConfigFile = new File("gradle/configurations.gradle").text
 		        def configLines = readConfigFile.readLines()
 		        configLines.each { String line ->
         		    if (line.contains("versionName")) {
@@ -59,7 +34,8 @@ node('master') {
             }
         }
 
-    }  catch (ex) {
+    }
+  catch (ex) {
         currentBuild.result = "FAILED"
         throw ex
     } 
