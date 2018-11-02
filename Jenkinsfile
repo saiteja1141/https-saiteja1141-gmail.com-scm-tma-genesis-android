@@ -29,7 +29,7 @@ properties(
 node('master') {
     try {
 	    stage('Version') {
-	        //dir('verifyJenkins') {
+	          dir('verifyJenkins') {
 
 	        // env.VERSION_NAME = "7.5.0"
 		    // sh 'pwd'
