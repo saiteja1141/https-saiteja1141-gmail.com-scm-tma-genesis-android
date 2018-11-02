@@ -32,8 +32,8 @@ node('master') {
 	          dir('https-saiteja1141-gmail.com-scm-tma-genesis-android') {
 
 	        // env.VERSION_NAME = "7.5.0"
-		    // sh 'pwd'
-		    // sh 'll'
+		       sh 'pwd'
+		       sh 'll'
 		        String readConfigFile = new File("verifyJenkins/gradle/configurations.gradle").text
 		        def configLines = readConfigFile.readLines()
 		        configLines.each { String line ->
