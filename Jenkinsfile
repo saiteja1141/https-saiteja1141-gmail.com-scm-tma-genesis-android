@@ -12,7 +12,7 @@ node ('master'){
 
 	        // env.VERSION_NAME = "7.5.0"
 		       sh 'pwd'
-		       sh 'll'
+		      // sh 'ls'
 		        File readConfigFile = new File('/var/lib/jenkins/workspace/test-version/verifyJenkins/gradle/configurations.gradle')
 		        def configLines = readConfigFile.readLines()
 			//@NonCPS
