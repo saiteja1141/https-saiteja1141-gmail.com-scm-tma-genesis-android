@@ -15,7 +15,7 @@ node ('master'){
 		       sh 'll'
 		        File readConfigFile = new File('/var/lib/jenkins/workspace/test-version/verifyJenkins/gradle/configurations.gradle')
 		        def configLines = readConfigFile.readLines()
-			@NonCPS
+			//@NonCPS
 		        configLines.each { String line ->
         		    if (line.contains("versionName")) {
             			configVersion = line =~ /(\d+\.)(\d+\.)(\d+)/
