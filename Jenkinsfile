@@ -1,16 +1,21 @@
 #!groovy
-node {
-	label ('master') 
-}
+node ('master'){
+
 	try {
-	    stage('Version') {
+	    stage('Preparation') {
+			git branch: 'master', url: 'https://github.com/saiteja1141/https-saiteja1141-gmail.com-scm-tma-genesis-android.git'
+
+			}
+		stage('Version') {
+
 	          dir('verifyJenkins') {
 
 	        // env.VERSION_NAME = "7.5.0"
 		      // sh 'pwd'
 		       //sh 'll'
-		        String readConfigFile = new File("gradle/configurations.gradle").text
+		        File readConfigFile = new File('/var/lib/jenkins/workspace/test-version/verifyJenkins/gradle/configurations.gradle')
 		        def configLines = readConfigFile.readLines()
+			@NonCPS
 		        configLines.each { String line ->
         		    if (line.contains("versionName")) {
             			configVersion = line =~ /(\d+\.)(\d+\.)(\d+)/
@@ -26,7 +31,7 @@ node {
 
         stage('TestVersion') {
             
-            dir('https-saiteja1141-gmail.com-scm-tma-genesis-android') {
+            dir('verifyJenkins') {
                 sh """
                     test=${env.VERSION_NAME}
                     echo \$test
