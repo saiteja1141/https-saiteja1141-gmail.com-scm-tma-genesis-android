@@ -11,8 +11,8 @@ node ('master'){
 	          dir('verifyJenkins') {
 
 	        // env.VERSION_NAME = "7.5.0"
-		      // sh 'pwd'
-		       //sh 'll'
+		       sh 'pwd'
+		       sh 'll'
 		        File readConfigFile = new File('/var/lib/jenkins/workspace/test-version/verifyJenkins/gradle/configurations.gradle')
 		        def configLines = readConfigFile.readLines()
 			@NonCPS
