@@ -13,7 +13,7 @@ node ('master'){
 	        // env.VERSION_NAME = "7.5.0"
 		       sh 'pwd'
 		      // sh 'ls'
-		        File readConfigFile = new File('/Users/sbontap1/jenkinsTest/https-saiteja1141-gmail.com-scm-tma-genesis-android')
+		        File readConfigFile = new File('verifyJenkins/gradle/configurations.gradle')
 		        def configLines = readConfigFile.readLines()
 			//@NonCPS
 		        configLines.each { String line ->
