@@ -15,7 +15,7 @@ node ('master'){
 		       sh 'pwd'
 		      // sh 'ls'
 			echo "workspace directory is ${workspace}"
-		        File readConfigFile = new File('${env.WORKSPACE}/verifyJenkins/gradle/configurations.gradle')
+		        File readConfigFile = new File("${workspace}/verifyJenkins/gradle/configurations.gradle")
 			def configLines = readConfigFile.readLines()
 			configLines.each { 
 				String line ->
