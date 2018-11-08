@@ -9,11 +9,12 @@ node ('master'){
 		stage('Version') {
 
 	          dir('verifyJenkins') {
+		def workspace = env.WORKSPACE
 
 	           //env.VERSION_NAME = "7.5.0"
 		       sh 'pwd'
 		      // sh 'ls'
-		        File readConfigFile = new File('/var/jenkins_home/workspace/updateVersion/verifyJenkins/gradle/configurations.gradle')
+		        File readConfigFile = new File('${workspace}/verifyJenkins/gradle/configurations.gradle')
 			def configLines = readConfigFile.readLines()
 			configLines.each { 
 				String line ->
