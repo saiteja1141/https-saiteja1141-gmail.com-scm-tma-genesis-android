@@ -10,28 +10,26 @@ node ('master'){
 
 	          dir('https-saiteja1141-gmail.com-scm-tma-genesis-android') {
 
-	           env.VERSION_NAME = "7.5.0"
+	           //env.VERSION_NAME = "7.5.0"
 		       sh 'pwd'
 		      // sh 'ls'
-		        File readConfigFile = new File('gradle/configurations.gradle')
-		        def configLines = readConfigFile.readLines()
-			//@NonCPS
-		        configLines.each { String line ->
-        		    if (line.contains("versionName")) {
-            			configVersion = line =~ /(\d+\.)(\d+\.)(\d+)/
-            			print "CONFIG VER: = " + configVersion[0][0]
-				        env.VERSION_NAME = configVersion[0][0]
-        		    }
-                    else {
-                        env.VERSION_NAME = "7.5.0"
-                    }
-		        }
-	        }
-	    }
+		        File readConfigFile = new File('verifyJenkins/gradle/configurations.gradle')
+			def configLines = readConfigFile.readLines()
+			configLines.each { 
+				String line ->
+					if (line.contains("versionName")) {
+					def configVersion = line =~ /(\d+\.)(\d+\.)(\d+)/
+					print "CONFIG VER: = " + configVersion[0][0]
+					env.VERSION_NAME = configVersion[0][0]
+					}
+				
+				}
+			}
+		}
 
-        stage('TestVersion') {
+		stage('TestVersion') {
             
-            dir('https-saiteja1141-gmail.com-scm-tma-genesis-android') {
+            dir('verifyJenkins') {
                 sh """
                     test=${env.VERSION_NAME}
                     echo \$test
@@ -43,5 +41,5 @@ node ('master'){
   catch (ex) {
         currentBuild.result = "FAILED"
         throw ex
-    } 
-}
+    }
+} 
