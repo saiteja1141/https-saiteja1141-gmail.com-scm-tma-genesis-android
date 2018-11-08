@@ -8,7 +8,7 @@ node ('master'){
 			}
 		stage('Version') {
 
-	          dir('https-saiteja1141-gmail.com-scm-tma-genesis-android') {
+	          dir('jenkinsTest') {
 
 	           //env.VERSION_NAME = "7.5.0"
 		       sh 'pwd'
@@ -29,7 +29,7 @@ node ('master'){
 
 		stage('TestVersion') {
             
-            dir('verifyJenkins') {
+            dir('jenkinsTest') {
                 sh """
                     test=${env.VERSION_NAME}
                     echo \$test
