@@ -8,12 +8,12 @@ node ('master'){
 			}
 		stage('Version') {
 
-	          dir('https-saiteja1141-gmail.com-scm-tma-genesis-android') {
+	          dir('verifyJenkins') {
 
 	           //env.VERSION_NAME = "7.5.0"
 		       sh 'pwd'
 		      // sh 'ls'
-		        File readConfigFile = new File('/var/jenkins_home/workspace/updateVersion/https-saiteja1141-gmail.com-scm-tma-genesis-android/verifyJenkins/gradle/configurations.gradle')
+		        File readConfigFile = new File('/var/jenkins_home/workspace/updateVersion/verifyJenkins/gradle/configurations.gradle')
 			def configLines = readConfigFile.readLines()
 			configLines.each { 
 				String line ->
