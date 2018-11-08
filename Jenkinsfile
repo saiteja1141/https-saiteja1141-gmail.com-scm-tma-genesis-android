@@ -13,7 +13,7 @@ node ('master'){
 	           //env.VERSION_NAME = "7.5.0"
 		       sh 'pwd'
 		      // sh 'ls'
-		        File readConfigFile = new File('verifyJenkins/gradle/configurations.gradle')
+		        File readConfigFile = new File('/verifyJenkins/gradle/configurations.gradle')
 			def configLines = readConfigFile.readLines()
 			configLines.each { 
 				String line ->
