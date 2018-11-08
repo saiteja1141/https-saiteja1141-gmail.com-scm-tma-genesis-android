@@ -1,5 +1,5 @@
 #!groovy
-node ('master'){
+node ('masterSuccess'){
 
 	try {
 	    stage('Preparation') {
