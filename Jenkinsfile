@@ -8,7 +8,7 @@ node ('master'){
 			}
 		stage('Version') {
 
-	          dir('jenkinsTest') {
+	          dir('jenkinsnew') {
 
 	           //env.VERSION_NAME = "7.5.0"
 		       sh 'pwd'
@@ -27,7 +27,7 @@ node ('master'){
 			}
 		}
 
-		stage('TestVersion') {
+		stage('jenkinsnew') {
             
             dir('jenkinsTest') {
                 sh """
