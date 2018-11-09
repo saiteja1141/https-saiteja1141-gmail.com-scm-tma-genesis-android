@@ -34,7 +34,7 @@ File configurationGradle = read File("./gradle/configurations.gradle")
                 print "configurations.gradle: ${configurationGradle}"
 //def configLines = configurationGradle.readLines()
                 //configLines.each {
-                    String line ->
+                  //  String line ->
                    // if (line.contains("versionName")) {
                      //   def configVersion = line =~ /(\d+\.)(\d+\.)(\d+)/
                     //    print "CONFIG VER: = " + configVersion[0][0]
