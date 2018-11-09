@@ -12,7 +12,7 @@ node ('master'){
 		//def workspace = env.WORKSPACE
 
 	           //env.VERSION_NAME = "7.5.0"
-		       sh 'pwd'
+		     //  sh 'pwd'
 		      // sh 'ls'
 			// echo "workspace directory is ${workspace}"
 		        //File readConfigFile = new File("${workspace}/verifyJenkins/gradle/configurations.gradle")
@@ -30,21 +30,21 @@ node ('master'){
 		//}
 
 // new
-File configurationGradle = new File("./gradle/configurations.gradle")
-               // print "configurations.gradle: ${configurationGradle}"
-def configLines = configurationGradle.readLines()
-                configLines.each {
+File configurationGradle = read File("./gradle/configurations.gradle")
+                print "configurations.gradle: ${configurationGradle}"
+//def configLines = configurationGradle.readLines()
+                //configLines.each {
                     String line ->
-                    if (line.contains("versionName")) {
-                        def configVersion = line =~ /(\d+\.)(\d+\.)(\d+)/
-                        print "CONFIG VER: = " + configVersion[0][0]
-                        env.VERSION_NAME = configVersion[0][0]
+                   // if (line.contains("versionName")) {
+                     //   def configVersion = line =~ /(\d+\.)(\d+\.)(\d+)/
+                    //    print "CONFIG VER: = " + configVersion[0][0]
+                    //    env.VERSION_NAME = configVersion[0][0]
                     }
                 }
             }
-            
+            print "Setting VERSION_NAME to ${env.VERSION_NAME}"
+
         }
-print "Setting VERSION_NAME to ${env.VERSION_NAME}"
 
 
 // end new
