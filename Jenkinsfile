@@ -30,8 +30,8 @@ node ('master'){
 		//}
 
 // new
-def configurationGradle = readFile("./gradle/configurations.gradle")
-                print "configurations.gradle: ${configurationGradle}"
+File configurationGradle = new File("./gradle/configurations.gradle")
+               // print "configurations.gradle: ${configurationGradle}"
 def configLines = configurationGradle.readLines()
                 configLines.each {
                     String line ->
