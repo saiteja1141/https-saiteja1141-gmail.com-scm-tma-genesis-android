@@ -10,7 +10,7 @@ node ('master'){
 
 	          dir('verifyJenkins') {
 		
-File configurationGradle = read File("./gradle/configurations.gradle")
+def configurationGradle = readFile("./gradle/configurations.gradle")
                 print "configurations.gradle: ${configurationGradle}"
                 def configLines = configurationGradle.readLines()
                 configLines.each {
