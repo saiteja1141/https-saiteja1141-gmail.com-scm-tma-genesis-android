@@ -12,7 +12,7 @@ node ('master'){
 		
 def configurationGradle = readFile("./gradle/configurations.gradle")
                 print "configurations.gradle: ${configurationGradle}"
-                def configLines = configurationGradle.readLines()
+                configLines = configurationGradle.readLines()
                 configLines.each {
                     String line ->
                     if (line.contains("versionName")) {
