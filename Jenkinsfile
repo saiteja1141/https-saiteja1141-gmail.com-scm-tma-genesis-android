@@ -19,16 +19,7 @@ node ('master'){
 			//def configLines = readConfigFile.readLines()
 			//configLines.each { 
 				//String line ->
-				//	if (line.contains("versionName")) {
-					//def configVersion = line =~ /(\d+\.)(\d+\.)(\d+)/
-					//print "CONFIG VER: = " + configVersion[0][0]
-					//env.VERSION_NAME = configVersion[0][0]
-					//}
 				
-				//}
-			//}
-		//}
-
 // new
 File configurationGradle = read File("./gradle/configurations.gradle")
                 print "configurations.gradle: ${configurationGradle}"
@@ -39,8 +30,8 @@ File configurationGradle = read File("./gradle/configurations.gradle")
                      //   def configVersion = line =~ /(\d+\.)(\d+\.)(\d+)/
                     //    print "CONFIG VER: = " + configVersion[0][0]
                     //    env.VERSION_NAME = configVersion[0][0]
-                    }
-                }
+                   // }
+                //}
             }
             print "Setting VERSION_NAME to ${env.VERSION_NAME}"
 
