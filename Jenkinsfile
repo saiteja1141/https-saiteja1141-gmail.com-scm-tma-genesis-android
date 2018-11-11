@@ -11,9 +11,9 @@ node ('master'){
 	          dir('verifyJenkins') {
 		
 def configurationGradle = readFile("./gradle/configurations.gradle")
-                print "configurations.gradle: ${configurationGradle}"
-                def configLines = configurationGradle.eachLine {
-                //configLines.eachLine {
+                print "configurations.gradle: ${configurationGradle.getText()}"
+                def configLines = configurationGradle.getText().readLines()
+                configLines.each {
                     String line ->
                     if (line.contains("versionName")) {
                         def configVersion = line =~ /(\d+\.)(\d+\.)(\d+)/
@@ -22,7 +22,6 @@ def configurationGradle = readFile("./gradle/configurations.gradle")
                     }
                 }
             }
-           // print "Setting VERSION_NAME to ${env.VERSION_NAME}"
 
         }
 
