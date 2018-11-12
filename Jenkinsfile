@@ -11,8 +11,10 @@ node ('master'){
 	          dir('verifyJenkins') {
 		
 def configurationGradle = readFile("./gradle/configurations.gradle")
-                print "configurations.gradle: ${configurationGradle.getText()}"
-                def configLines = configurationGradle.getText().readLines()
+                print "configurations.gradle: ${configurationGradle}"
+                File file = File.createTempFile("temp", ".temp")
+                file.write configurationGradle
+                def configLines = file.readLines()
                 configLines.each {
                     String line ->
                     if (line.contains("versionName")) {
