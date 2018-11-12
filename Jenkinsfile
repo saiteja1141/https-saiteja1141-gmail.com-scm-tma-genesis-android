@@ -13,6 +13,7 @@ node ('master'){
 def configurationGradle = readFile("./gradle/configurations.gradle")
                 print "configurations.gradle: ${configurationGradle}"
                 File file = File.createTempFile("temp", ".temp")
+		file.deleteOnExit()
                 file.write configurationGradle
                 def configLines = file.readLines()
                 configLines.each {
