@@ -11,8 +11,10 @@ node ('master'){
 	          dir('verifyJenkins') {
 		
 		def configurationGradle = readFile("./gradle/configurations.gradle")
+		println configurationGradle
                 def configVersion = configurationGradle =~ /(versionName\s+:\s+\")(\d+\.)(\d+\.)(\d+)/
-                print "configurations.gradle:" configVersion
+                print "configurations.gradle:" 
+		print configVersion
                 print configVersion.split(':')[1]
                 env.VERSION_NAME = configVersion.split(':')[0]      
 	      }
