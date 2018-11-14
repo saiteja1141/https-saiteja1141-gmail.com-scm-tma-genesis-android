@@ -16,9 +16,8 @@ node ('master'){
 				print "VersionName:" + configVersion[0][0].split('"')[1]
 				//print “Setting VERSION_NAME to ${env.VERSION_NAME}” 
                 		env.VERSION_NAME = configVersion[0][0].split('"')[1]
-				echo “Setting VERSION_NAME to ${env.VERSION_NAME}” 
+				print “Setting VERSIONNAME to ${env.VERSION_NAME}” 
 			}
-
         	}
 
 		stage('jenkinsnew') {
