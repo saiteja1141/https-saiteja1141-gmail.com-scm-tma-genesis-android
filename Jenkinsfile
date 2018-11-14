@@ -13,11 +13,14 @@ node ('master'){
 		def configurationGradle = readFile("./gradle/configurations.gradle")
 		println configurationGradle
                 def configVersion = configurationGradle =~ /(versionName\s+:\s+\")(\d+\.)(\d+\.)(\d+)/
-                print "configurations.gradle:" 
-		print configVersion
-                print configVersion.split(':')[1]
-                env.VERSION_NAME = configVersion.split(':')[0]      
-	      }
+                if (configVersion.matches()) { 
+			print "configversion:" + configVersion[0]
+			print "configversion:" + configVersion[0][0]
+	            	//print configVersion.split(':')[1]
+                	//env.VERSION_NAME = configVersion.split(':')[0]      
+	      
+		}	
+	}
 
         }
 
