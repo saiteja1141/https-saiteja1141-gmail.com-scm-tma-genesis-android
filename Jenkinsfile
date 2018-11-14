@@ -19,7 +19,7 @@ node ('master'){
 			}
         	}
 
-		print “VERSIONNAME to ${env.VERSION_NAME}”
+		//print “VERSIONNAME to ${env.VERSION_NAME}”
 
 		stage('jenkinsnew') {
             
