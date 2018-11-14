@@ -16,7 +16,7 @@ node ('master'){
 				print "VersionName:" + configVersion[0][0].split('"')[1]
                 		env.VERSION_NAME = configVersion[0][0].split('"')[1]
 				//println “Setting VERSION_NAME to ${env.VERSION_NAME}” 
-				print "Setting VERSIONNAME to ${env.VERSION_NAME}"     	
+				print "Setting ${VERSION_NAME} to ${env.VERSION_NAME}"     	
 			}
 
         	}
