@@ -15,7 +15,7 @@ node ('master'){
                 		def configVersion = configurationGradle =~ /(versionName\s+:\s+\")(\d+\.)(\d+\.)(\d+)/
 				print "VersionName:" + configVersion[0][0].split('"')[1] 
                 		env.VERSION_NAME = configVersion[0][0].split('"')[1]
-				print “Setting VERSION_NAME to ${env.VERSION_NAME}”
+				print “Setting VersionName to ${env.VERSION_NAME}”
 			}
         	}
 
