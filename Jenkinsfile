@@ -19,6 +19,8 @@ node ('master'){
 			}
         	}
 
+		print “VERSIONNAME to ${env.VERSION_NAME}”
+
 		stage('jenkinsnew') {
             
             dir('jenkinsTest') {
